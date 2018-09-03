@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class RPGHelper extends JFrame {
 
-    public static void makeButton(String name, int x, int y, int dice, JLabel label, JPanel panel) {
+    public static void makeDiceButton(String name, int x, int y, int dice, JLabel label, JPanel panel) {
 
         JButton button = new JButton(name);
         button.setForeground(Color.WHITE);
@@ -15,6 +15,25 @@ public class RPGHelper extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (e.getModifiers() == 16) {
                     int num = (int) Math.round(Math.random() * dice + 1);
+                    label.setText(String.valueOf(num));
+                }
+            }
+        });
+        panel.add(button);
+
+    }
+
+    public static void makeHealthButton(String name, int x, int y, int change, JLabel label, JPanel panel) {
+
+        JButton button = new JButton(name);
+        button.setForeground(Color.WHITE);
+        button.setBackground(Color.BLACK);
+        button.setFont(new Font("Ubuntu Mono", Font.PLAIN, 16));
+        button.setBounds(x, y, 75, 50);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (e.getModifiers() == 16) {
+                    int num = Integer.valueOf(label.getText()) + change;
                     label.setText(String.valueOf(num));
                 }
             }
@@ -51,12 +70,21 @@ public class RPGHelper extends JFrame {
         roll.setBounds(220, 300, 100, 100);
         panel.add(roll);
 
-        makeButton("D20", 20, 140, 19, roll, panel);
-        makeButton("D12", 105, 140, 11, roll, panel);
-        makeButton("D10", 190, 140, 9, roll, panel);
-        makeButton("D8", 275, 140, 7, roll, panel);
-        makeButton("D6", 360, 140, 5, roll, panel);
-        makeButton("D4", 190, 200, 3, roll, panel);
+        makeDiceButton("D20", 20, 140, 19, roll, panel);
+        makeDiceButton("D12", 105, 140, 11, roll, panel);
+        makeDiceButton("D10", 190, 140, 9, roll, panel);
+        makeDiceButton("D8", 275, 140, 7, roll, panel);
+        makeDiceButton("D6", 360, 140, 5, roll, panel);
+        makeDiceButton("D4", 190, 200, 3, roll, panel);
+
+        JLabel health = new JLabel("10");
+        health.setForeground(Color.WHITE);
+        health.setFont(new Font("Ubuntu Mono", Font.BOLD, 40));
+        health.setBounds(220, 400, 100, 100);
+        panel.add(health);
+
+        makeHealthButton("+", 115, 425, 1, health, panel);
+        makeHealthButton("-", 295, 425, -1, health, panel);
 
         frame.setVisible(true);
 
