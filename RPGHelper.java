@@ -67,24 +67,24 @@ public class RPGHelper extends JFrame {
         JLabel roll = new JLabel("None");
         roll.setForeground(Color.WHITE);
         roll.setFont(new Font("Ubuntu Mono", Font.BOLD, 40));
-        roll.setBounds(220, 300, 100, 100);
+        roll.setBounds(240, 300, 100, 100);
         panel.add(roll);
 
-        makeDiceButton("D20", 20, 140, 19, roll, panel);
-        makeDiceButton("D12", 105, 140, 11, roll, panel);
-        makeDiceButton("D10", 190, 140, 9, roll, panel);
-        makeDiceButton("D8", 275, 140, 7, roll, panel);
-        makeDiceButton("D6", 360, 140, 5, roll, panel);
-        makeDiceButton("D4", 190, 200, 3, roll, panel);
+        makeDiceButton("D20", 50, 140, 19, roll, panel);
+        makeDiceButton("D12", 135, 140, 11, roll, panel);
+        makeDiceButton("D10", 220, 140, 9, roll, panel);
+        makeDiceButton("D8", 305, 140, 7, roll, panel);
+        makeDiceButton("D6", 390, 140, 5, roll, panel);
+        makeDiceButton("D4", 220, 200, 3, roll, panel);
 
         JLabel health = new JLabel("10");
         health.setForeground(Color.WHITE);
         health.setFont(new Font("Ubuntu Mono", Font.BOLD, 40));
-        health.setBounds(220, 400, 100, 100);
+        health.setBounds(240, 400, 100, 100);
         panel.add(health);
 
-        makeHealthButton("+", 115, 425, 1, health, panel);
-        makeHealthButton("-", 295, 425, -1, health, panel);
+        makeHealthButton("+", 135, 425, 1, health, panel);
+        makeHealthButton("-", 305, 425, -1, health, panel);
 
         frame.setVisible(true);
 
